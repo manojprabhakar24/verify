@@ -86,88 +86,152 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
+        body: Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          opacity: 200,
+          image: AssetImage(
+            'assets/background.jpg',
+          ), // Replace with your image path
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(children: [Image.asset("image/Scissorsimage.jpg")]),
-                Container(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Scissor\'s',
-                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Card(
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width *
-                          0.3, // Adjust the width here
-                      child: Column(
+          child: Column(children: [
+            Row(children: [
+              Image.asset(
+                'assets/Scissorsimage.jpg',
+                height: 100,
+                width: 100,
+              ),
+            ]),
+            Container(
+              alignment: Alignment.topLeft,
+              child: Text(
+                'Scissor\'s',
+                style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Card(
+              color: Colors.white,
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width *
+                      0.4, // Adjust the width here
+                  child: Column(
+                    children: [
+
+                      TextField(
+                        style: Theme.of(context).textTheme.labelLarge,
+                        controller: nameController,
+                        maxLength: 30,
+                        keyboardType: TextInputType.name,
+                        decoration: InputDecoration(
+                          labelText: 'Enter your Name',
+
+                          labelStyle: TextStyle(color: Colors.brown),
+                          prefixIcon: Icon(Icons.person, color: Colors.brown),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.brown, width: 1.0),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.brown, width: 2.0), // Change focused underline color
+                          ),
+                          filled: true,
+                          fillColor: Colors.white.withOpacity(0.5),
+
+                        ),
+
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+
                         children: [
-                          TextField(
-                            controller: nameController,
-                            maxLength: 30,
-                            decoration: InputDecoration(
-                              labelText: 'Enter your Name',
-                              border: OutlineInputBorder(),
-                            ),
-                            style: TextStyle(fontSize: 16),
+                          Expanded(
+                            child: TextField(
+
+                              style: Theme.of(context).textTheme.labelLarge,
+                              controller: phoneController,
+                              maxLength: 15,
+                              keyboardType: TextInputType.phone,
+                        decoration: InputDecoration(
+
+                          labelText: 'Enter Your Phone number',
+                          labelStyle: TextStyle(color: Colors.brown),
+                          prefixIcon: Icon(Icons.phone, ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.brown, width: 1.0),
                           ),
-                          const SizedBox(height: 20),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: TextField(
-                                  controller: phoneController,
-                                  maxLength: 15,
-                                  keyboardType: TextInputType.phone,
-                                  decoration: InputDecoration(
-                                    labelText: 'Enter Mobile Number',
-                                    border: OutlineInputBorder(),
-                                  ),
-                                  style: TextStyle(fontSize: 16),
-                                ),
-                              ),
-                              SizedBox(width: 8),
-                              ElevatedButton(
-                                onPressed: isNameValid ? () => _getOtp() : null,
-                                child: Text(
-                                    otpRequested ? 'Resend OTP' : 'Get OTP'),
-                              ),
-                            ],
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.brown, width: 2.0), // Change focused underline color
                           ),
-                          if (otpRequested) ...[
-                            const SizedBox(height: 20),
-                            TextField(
-                              controller: otpController,
-                              maxLength: 6,
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
-                                labelText: 'Enter OTP',
-                                border: OutlineInputBorder(),
+                          filled: true,
+                          fillColor: Colors.white.withOpacity(0.5),
+
                               ),
-                              style: TextStyle(fontSize: 16),
+
                             ),
-                            const SizedBox(height: 20),
-                            ElevatedButton(
-                              onPressed: _verifyOtp,
-                              child: const Text('Confirm'),
+                          ),
+                          SizedBox(width: 8),
+                          ElevatedButton(
+                            style: Theme.of(context).elevatedButtonTheme.style,
+
+
+                            onPressed: isNameValid ? () => _getOtp() : null,
+                            child: Text(
+                              otpRequested ? 'Resend OTP' : 'Get OTP',
+                              style: TextStyle(color: Colors.white),
                             ),
-                          ],
+                          ),
                         ],
                       ),
-                    ),
+                      if (otpRequested) ...[
+                        const SizedBox(height: 20),
+                        TextField(
+                          style: Theme.of(context).textTheme.labelLarge,
+                          controller: otpController,
+                          maxLength: 6,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            labelText: 'Enter OTP',
+
+                            labelStyle: TextStyle(color: Colors.brown),
+                            prefixIcon: Icon(Icons.message_rounded, color: Colors.brown),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.brown, width: 1.0),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.brown, width: 2.0), // Change focused underline color
+                            ),
+                            filled: true,
+                            fillColor: Colors.white.withOpacity(0.5),
+
+                          ),
+
+                        ),
+                        const SizedBox(height: 20),
+                        ElevatedButton(
+                          style: Theme.of(context).elevatedButtonTheme.style,
+                          onPressed: _verifyOtp,
+
+                          child: Text(
+                            'Confirm',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ],
                   ),
-                )
-              ])),
-    );
+                ),
+              ),
+            )
+          ])),
+    ));
   }
 }

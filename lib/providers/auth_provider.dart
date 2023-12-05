@@ -1,18 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:verify/screens/otp_screen.dart';
-import 'package:verify/utils/utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../screens/otp_screen.dart';
+import '../utils/utils.dart';
 
 class AuthProvider extends ChangeNotifier {
   bool _isSignedIn = false;
-
   bool get isSignedIn => _isSignedIn;
   bool _isLoading = false;
-
   bool get isLoading => _isLoading;
   String? _uid;
-
   String get uid => _uid!;
 
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -69,7 +67,7 @@ class AuthProvider extends ChangeNotifier {
       User? user = (await _firebaseAuth.signInWithCredential(creds)).user!;
 
       if (user != null) {
-// logic
+        // logic
         _uid = user.uid;
         onSuccess();
       }
