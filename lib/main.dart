@@ -2,8 +2,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:verify/providers/auth_provider.dart';
+import 'constant/theme.dart';
 import 'screens/welcome_screen.dart';
 import 'package:provider/provider.dart';
+
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,16 +22,17 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => AuthProvider())],
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: appTheme, // Use your defined appTheme here
         home: SignInScreen(),
       ),
     );
   }
 }
+
+

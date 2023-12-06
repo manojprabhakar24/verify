@@ -86,6 +86,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
         body: Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -134,21 +135,24 @@ class _SignInScreenState extends State<SignInScreen> {
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                           labelText: 'Enter your Name',
-
+                          floatingLabelBehavior: FloatingLabelBehavior.auto,
                           labelStyle: TextStyle(color: Colors.brown),
                           prefixIcon: Icon(Icons.person, color: Colors.brown),
+                          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.brown, width: 1.0),
+                            borderRadius: BorderRadius.circular(15.0),
                           ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.brown, width: 2.0), // Change focused underline color
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.brown, width: 2.0),
+                            borderRadius: BorderRadius.circular(15.0),
                           ),
                           filled: true,
                           fillColor: Colors.white.withOpacity(0.5),
-
                         ),
-
                       ),
+
+
                       const SizedBox(height: 20),
                       Row(
 
@@ -160,26 +164,29 @@ class _SignInScreenState extends State<SignInScreen> {
                               controller: phoneController,
                               maxLength: 15,
                               keyboardType: TextInputType.phone,
-                        decoration: InputDecoration(
-
-                          labelText: 'Enter Your Phone number',
-                          labelStyle: TextStyle(color: Colors.brown),
-                          prefixIcon: Icon(Icons.phone, ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.brown, width: 1.0),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.brown, width: 2.0), // Change focused underline color
-                          ),
-                          filled: true,
-                          fillColor: Colors.white.withOpacity(0.5),
-
+                              decoration: InputDecoration(
+                                labelText: 'Enter your Mobile Number',
+                                floatingLabelBehavior: FloatingLabelBehavior.auto,
+                                labelStyle: TextStyle(color: Colors.brown),
+                                prefixIcon: Icon(Icons.phone, color: Colors.brown),
+                                contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.brown, width: 1.0),
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.brown, width: 2.0),
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                                filled: true,
+                                fillColor: Colors.white.withOpacity(0.5),
                               ),
 
                             ),
                           ),
                           SizedBox(width: 8),
                           ElevatedButton(
+
                             style: Theme.of(context).elevatedButtonTheme.style,
 
 
@@ -200,18 +207,20 @@ class _SignInScreenState extends State<SignInScreen> {
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             labelText: 'Enter OTP',
-
+                            floatingLabelBehavior: FloatingLabelBehavior.auto,
                             labelStyle: TextStyle(color: Colors.brown),
-                            prefixIcon: Icon(Icons.message_rounded, color: Colors.brown),
+                            prefixIcon: Icon(Icons.message_sharp, color: Colors.brown),
+                            contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.brown, width: 1.0),
+                              borderRadius: BorderRadius.circular(15.0),
                             ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.brown, width: 2.0), // Change focused underline color
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.brown, width: 2.0),
+                              borderRadius: BorderRadius.circular(15.0),
                             ),
                             filled: true,
                             fillColor: Colors.white.withOpacity(0.5),
-
                           ),
 
                         ),
