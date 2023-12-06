@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:verify/screens/mainscreen.dart';
 
+import '../constant/theme.dart';
+
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
 
@@ -136,15 +138,15 @@ class _SignInScreenState extends State<SignInScreen> {
                         decoration: InputDecoration(
                           labelText: 'Enter your Name',
                           floatingLabelBehavior: FloatingLabelBehavior.auto,
-                          labelStyle: TextStyle(color: Colors.brown),
-                          prefixIcon: Icon(Icons.person, color: Colors.brown),
+                          labelStyle: TextStyle(color: appTheme.colorScheme.primary),
+                          prefixIcon: Icon(Icons.person, color:appTheme.colorScheme.primary),
                           contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.brown, width: 1.0),
+                            borderSide: BorderSide(color: appTheme.colorScheme.primary, width: 1.0),
                             borderRadius: BorderRadius.circular(15.0),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.brown, width: 2.0),
+                            borderSide: BorderSide(color: appTheme.colorScheme.primary, width: 2.0),
                             borderRadius: BorderRadius.circular(15.0),
                           ),
                           filled: true,
@@ -167,15 +169,15 @@ class _SignInScreenState extends State<SignInScreen> {
                               decoration: InputDecoration(
                                 labelText: 'Enter your Mobile Number',
                                 floatingLabelBehavior: FloatingLabelBehavior.auto,
-                                labelStyle: TextStyle(color: Colors.brown),
-                                prefixIcon: Icon(Icons.phone, color: Colors.brown),
+                                labelStyle: TextStyle(color: appTheme.colorScheme.primary),
+                                prefixIcon: Icon(Icons.phone, color: appTheme.colorScheme.primary),
                                 contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                                 enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.brown, width: 1.0),
+                                  borderSide: BorderSide(color: appTheme.colorScheme.primary, width: 1.0),
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.brown, width: 2.0),
+                                  borderSide: BorderSide(color:appTheme.colorScheme.primary, width: 2.0),
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                                 filled: true,
@@ -193,7 +195,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             onPressed: isNameValid ? () => _getOtp() : null,
                             child: Text(
                               otpRequested ? 'Resend OTP' : 'Get OTP',
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(color: Colors.brown[200]),
                             ),
                           ),
                         ],
