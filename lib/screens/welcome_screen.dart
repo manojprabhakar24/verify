@@ -13,8 +13,7 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController phoneController =
-      TextEditingController(text: '+91');
+  final TextEditingController phoneController = TextEditingController(text: '+91');
   final TextEditingController otpController = TextEditingController();
   late String _verificationId;
   bool isNameValid = false;
@@ -88,137 +87,87 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-        body: Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          opacity: 200,
-          image: AssetImage(
-            'assets/background.jpg',
-          ), // Replace with your image path
-          fit: BoxFit.cover,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            opacity: 200,
+            image: AssetImage('assets/background.jpg'),
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-      child: Padding(
+        child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(children: [
-            Row(children: [
-              Image.asset(
-                'assets/Scissorsimage.jpg',
-                height: 100,
-                width: 100,
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Image.asset(
+                    'assets/Scissorsimage-logo.png',
+                    height: 100,
+                    width: 100,
+                  ),
+                ],
               ),
-            ]),
-            Container(
-              alignment: Alignment.topLeft,
-              child: Text(
-                'Scissor\'s',
-                style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+              Container(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  'Scissor\'s',
+                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-            Card(
-              color: Colors.white,
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width *
-                      0.4, // Adjust the width here
-                  child: Column(
-                    children: [
-
-                      TextField(
-                        style: Theme.of(context).textTheme.labelLarge,
-                        controller: nameController,
-                        maxLength: 30,
-                        keyboardType: TextInputType.name,
-                        decoration: InputDecoration(
-                          labelText: 'Enter your Name',
-                          floatingLabelBehavior: FloatingLabelBehavior.auto,
-                          labelStyle: TextStyle(color: appTheme.colorScheme.primary),
-                          prefixIcon: Icon(Icons.person, color:appTheme.colorScheme.primary),
-                          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: appTheme.colorScheme.primary, width: 1.0),
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: appTheme.colorScheme.primary, width: 2.0),
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          filled: true,
-                          fillColor: Colors.white.withOpacity(0.5),
-                        ),
-                      ),
-
-
-                      const SizedBox(height: 20),
-                      Row(
-
-                        children: [
-                          Expanded(
-                            child: TextField(
-
-                              style: Theme.of(context).textTheme.labelLarge,
-                              controller: phoneController,
-                              maxLength: 15,
-                              keyboardType: TextInputType.phone,
-                              decoration: InputDecoration(
-                                labelText: 'Enter your Mobile Number',
-                                floatingLabelBehavior: FloatingLabelBehavior.auto,
-                                labelStyle: TextStyle(color: appTheme.colorScheme.primary),
-                                prefixIcon: Icon(Icons.phone, color: appTheme.colorScheme.primary),
-                                contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color: appTheme.colorScheme.primary, width: 1.0),
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(color:appTheme.colorScheme.primary, width: 2.0),
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                filled: true,
-                                fillColor: Colors.white.withOpacity(0.5),
-                              ),
-
-                            ),
-                          ),
-                          SizedBox(width: 8),
-                          ElevatedButton(
-
-                            style: Theme.of(context).elevatedButtonTheme.style,
-
-
-                            onPressed: isNameValid ? () => _getOtp() : null,
-                            child: Text(
-                              otpRequested ? 'Resend OTP' : 'Get OTP',
-                              style: TextStyle(color: Colors.brown[200]),
-                            ),
-                          ),
-                        ],
-                      ),
-                      if (otpRequested) ...[
-                        const SizedBox(height: 20),
+              Card(
+                color: Colors.white,
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: Column(
+                      children: [
                         TextField(
                           style: Theme.of(context).textTheme.labelLarge,
-                          controller: otpController,
-                          maxLength: 6,
-                          keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
-                            labelText: 'Enter OTP',
+                          controller: nameController,
+                          maxLength: 30,
+                          keyboardType: TextInputType.name,
+                          decoration: InputDecoration( labelText: 'Enter your Name',
                             floatingLabelBehavior: FloatingLabelBehavior.auto,
-                            labelStyle: TextStyle(color: Colors.brown),
-                            prefixIcon: Icon(Icons.message_sharp, color: Colors.brown),
+                            labelStyle: TextStyle(color: appTheme.colorScheme.primary),
+                            prefixIcon: Icon(Icons.person, color:appTheme.colorScheme.primary),
                             contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.brown, width: 1.0),
+                              borderSide: BorderSide(color: appTheme.colorScheme.primary, width: 1.0),
                               borderRadius: BorderRadius.circular(15.0),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.brown, width: 2.0),
+                              borderSide: BorderSide(color: appTheme.colorScheme.primary, width: 2.0),
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            filled: true,
+                            fillColor: Colors.white.withOpacity(0.5),
+                          ),
+                  ),
+
+                        const SizedBox(height: 10),
+                        TextField(
+                          style: Theme.of(context).textTheme.labelLarge,
+                          controller: phoneController,
+                          maxLength: 15,
+                          keyboardType: TextInputType.phone,
+                          decoration: InputDecoration(
+                            labelText: 'Enter your Mobile Number',
+                            floatingLabelBehavior: FloatingLabelBehavior.auto,
+                            labelStyle: TextStyle(color: appTheme.colorScheme.primary),
+                            prefixIcon: Icon(Icons.phone, color: appTheme.colorScheme.primary),
+                            contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: appTheme.colorScheme.primary, width: 1.0),
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color:appTheme.colorScheme.primary, width: 2.0),
                               borderRadius: BorderRadius.circular(15.0),
                             ),
                             filled: true,
@@ -226,23 +175,73 @@ class _SignInScreenState extends State<SignInScreen> {
                           ),
 
                         ),
-                        const SizedBox(height: 20),
-                        ElevatedButton(
-                          style: Theme.of(context).elevatedButtonTheme.style,
-                          onPressed: _verifyOtp,
 
+                        SizedBox(height: 10),
+                        ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                                  (states) {
+                                if (states.contains(MaterialState.disabled)) {
+                                  return Colors.brown; // Disabled color
+                                } else if (states.contains(MaterialState.pressed)) {
+                                  return Colors.brown[200]!; // Pressed color
+                                } else {
+                                  return Colors.brown[400]!; // Enabled color
+                                }
+                              },
+                            ),
+                          ),
+                          onPressed: isNameValid ? () => _getOtp() : null,
                           child: Text(
-                            'Confirm',
+                            otpRequested ? 'Resend OTP' : 'Get OTP',
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
+
+                        if (otpRequested) ...[
+                          const SizedBox(height: 20),
+                          TextField(
+                            style: Theme.of(context).textTheme.labelLarge,
+                            controller: otpController,
+                            maxLength: 6,
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              labelText: 'Enter OTP',
+                              floatingLabelBehavior: FloatingLabelBehavior.auto,
+                              labelStyle: TextStyle(color:appTheme.colorScheme.primary),
+                              prefixIcon: Icon(Icons.message_sharp, color: appTheme.colorScheme.primary),
+                              contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: appTheme.colorScheme.primary, width: 1.0),
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color:appTheme.colorScheme.primary, width: 2.0),
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
+                              filled: true,
+                              fillColor: Colors.white.withOpacity(0.5),
+                            ),
+
+                          ),
+                          const SizedBox(height: 20),
+                          ElevatedButton(
+                            onPressed: _verifyOtp,
+                            child: Text(
+                              'Confirm',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ],
                       ],
-                    ],
+                    ),
                   ),
                 ),
-              ),
-            )
-          ])),
-    ));
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -8,14 +8,15 @@ import 'package:provider/provider.dart';
 
 
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: const FirebaseOptions(
-      apiKey: 'AIzaSyCje9NG6b5US0pNQTe7DqjionSVjjY13GQ',
-      appId: "1:364495328134:android:2b1e420a2d7be6215f9207",
-      messagingSenderId: "364495328134",
-      projectId: "phone-otp-8d816",
+      apiKey: 'AIzaSyDqA85YF2z4qRmZgw6pzGDSC67rG3TyOVE',
+      appId: "1:393909240919:android:8a7bf6560e681049628f12",
+      messagingSenderId: "393909240919",
+      projectId: "flutter-login-6480f",
     ),
   );
   runApp( MyApp());
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: appTheme, // Use your defined appTheme here
-        home: SignInScreen(),
+        home: const SignInScreen(),
       ),
     );
   }

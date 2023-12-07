@@ -66,7 +66,7 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
-    - assets/Scissorsimage.jpg
+    - assets/Scissorsimage-logo.png
     - assets/background.jpg
 
   # The following line ensures that the Material Icons font is
